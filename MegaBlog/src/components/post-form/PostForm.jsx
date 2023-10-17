@@ -41,7 +41,7 @@ function PostForm({ post }) {
       if (file) {
         const fileId = file.$id;
         data.featuredImage = fileId;
-        const dbPost = await service.createPost({ ...data, userId: userData.$id, })
+        const dbPost = await service.createPost({ ...data })
         if (dbPost) {
           navigate(`/post/${dbPost.$id}`)
         }
@@ -74,7 +74,7 @@ function PostForm({ post }) {
 
   return (
     <form onSubmit={handleSubmit(submit)} className="flex flex-wrap">
-      <div className="w-2/3 px-2">
+      <div className="w-2/3 px-2 text-[#93B1A6]">
         <Input
           label="Title :"
           placeholder="Title"
@@ -92,7 +92,7 @@ function PostForm({ post }) {
         />
         <RTE label="Content :" name="content" control={control} defaultValue={getValues("content")} />
       </div>
-      <div className="w-1/3 px-2">
+      <div className="w-1/3 pl-10 px-2 text-[#93B1A6]">
         <Input
           label="Featured Image :"
           type="file"
@@ -115,7 +115,7 @@ function PostForm({ post }) {
           className="mb-4"
           {...register("status", { required: true })}
         />
-        <Button type="submit" bgColor={post ? "bg-green-500" : undefined} className="w-full">
+        <Button type="submit" bgColor={post ? "bg-green-500" : undefined} className="w-full shadow-lg text-[#183D3D] bg-[#93B1A6] text-lg">
           {post ? "Update" : "Submit"}
         </Button>
       </div>
