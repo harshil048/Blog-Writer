@@ -30,9 +30,9 @@ function SignUp() {
   return (
     <div className="flex items-center justify-center">
       <div className={`mx-auto w-full max-w-lg text-[#040D12] bg-[#5C8374] rounded-xl p-10 shadow-xl border border-black/10`}>
-        <div className="mb-2 flex justify-center">
-          <span className="inline-block w-full max-w-[100px]">
-            <Logo width="100%" />
+        <div className="mb-3 grid content-center justify-center">
+          <span className="inline-block w-full  max-w-[100px]">
+            <Logo width="80px" />
           </span>
         </div>
         <h2 className="text-center text-3xl font-bold leading-tight">Sign up to create account</h2>
