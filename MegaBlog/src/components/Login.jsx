@@ -71,7 +71,7 @@ function Login() {
                 required: true,
               })}
             />
-            <Button type='submit' className='w-full text-[#183D3D] bg-[#93B1A6]'>Sign in</Button>
+            <Button type='submit' className='w-full text-[#e2e6e6] bg-[#040D12]'>Sign in</Button>
           </div>
         </form>
       </div>

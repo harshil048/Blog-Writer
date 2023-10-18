@@ -10,7 +10,7 @@ function PostForm({ post }) {
   const { register, handleSubmit, watch, setValue, control, getValues } = useForm({
     defaultValues: {
       title: post?.title || "",
-      slug: post?.slug || "",
+      slug: post?.$id || "",
       content: post?.content || "",
       status: post?.status || "active",
     }
@@ -41,7 +41,7 @@ function PostForm({ post }) {
       if (file) {
         const fileId = file.$id;
         data.featuredImage = fileId;
-        const dbPost = await service.createPost({ ...data })
+        const dbPost = await service.createPost({ ...data, userId: userData.$id })
         if (dbPost) {
           navigate(`/post/${dbPost.$id}`)
         }
@@ -65,7 +65,7 @@ function PostForm({ post }) {
   useEffect(() => {
     const subscription = watch((value, { name }) => {
       if (name === 'title') {
-        setValue('slug', slugTransform(value.title, { shouldValidate: true }))
+        setValue('slug', slugTransform(value.title), { shouldValidate: true });
       }
     })
 

@@ -1,3 +1,4 @@
+import { useId } from 'react';
 import confg from '../confg/confg';
 import { Client, ID, Databases, Storage, Query } from "appwrite"
 
@@ -15,10 +16,10 @@ export class Service {
     this.bucket = new Storage(this.client);
   }
 
-  async createPost({title, slug, content, status, featuredImage}) {
+  async createPost({ title, slug, content, status, featuredImage, userId }) {
     try {
       return await this.databases.createDocument(
-        confg.appwriteDatabaseId, 
+        confg.appwriteDatabaseId,
         confg.appwriteCollectionId,
         slug,
         {
@@ -26,17 +27,18 @@ export class Service {
           content,
           status,
           featuredImage,
+          userId,
         }
       )
     } catch (error) {
-        throw error;
+      throw error;
     }
   }
 
-  async updatePost(slug, {title, content, featuredImage, status}){
+  async updatePost(slug, { title, content, featuredImage, status }) {
     try {
       return await this.databases.updateDocument(
-        confg.appwriteDatabaseId, 
+        confg.appwriteDatabaseId,
         confg.appwriteCollectionId,
         slug,
         {
@@ -47,44 +49,48 @@ export class Service {
         }
       )
     } catch (error) {
-        throw error;
+      throw error;
     }
   }
 
-  async deletePost(slug){
+  async deletePost(slug) {
     try {
       await this.databases.deleteDocument(
-        confg.appwriteDatabaseId, 
+        confg.appwriteDatabaseId,
         confg.appwriteCollectionId,
         slug
       )
       return true;
     } catch (error) {
-        throw error;
+      throw error;
     }
   }
 
-  async getPost(slug){
+  async getPost(slug) {
     try {
       return await this.databases.getDocument(
-        confg.appwriteDatabaseId, 
+        confg.appwriteDatabaseId,
         confg.appwriteCollectionId,
         slug
       )
     } catch (error) {
-        throw error;
+      throw error;
     }
   }
 
-  async getPosts(queries = [Query.equal("status", "active")]){
+  async getPosts(userId) {
     try {
+      const queries = [
+        Query.equal("status", "active"),  // Optional: Include other filters if needed
+        Query.equal("userId", userId),   // Filter by the user's ID
+      ];
       return await this.databases.listDocuments(
-        confg.appwriteDatabaseId, 
+        confg.appwriteDatabaseId,
         confg.appwriteCollectionId,
         queries,
       )
     } catch (error) {
-        throw error;
+      throw error;
     }
   }
 
@@ -114,7 +120,7 @@ export class Service {
     }
   }
 
-  getFilePreview (fileId) {
+  getFilePreview(fileId) {
     try {
       return this.bucket.getFilePreview(
         confg.appwriteBucketId,
