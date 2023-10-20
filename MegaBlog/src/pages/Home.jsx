@@ -39,24 +39,24 @@ function Home() {
       <div className='flex'>
         <div className='w-2/3'>
           <p class="text-[62px] text-left ml-[3%] font-semibold text-gray-300 drop-shadow-2xl" style={{fontFamily: 'Unbounded'}}>Read, Explore and <br />Gain Knowledge...</p>
-          <p class="text-3xl text-left mt-10 ml-[3%] text-gray-400 tracking-widest font-semibold" style={{fontFamily: 'Raleway'}}>Write Your Next Blog...</p>
+          <p class="text-3xl text-left mt-6 ml-[3%] text-gray-400 tracking-wide font-semibold" >Write Your Next Blog...</p>
         </div>
         <div className='w-1/3 mr-[10%] grid content-center mt-[5%]'>
           <img src={home} className=' h-[100%] scale-[1.3]' />
         </div>
       </div>
-      <div className='text-left ml-[3%]'>
+      <div className='text-left ml-[1%]'>
         <Link
           to="/login"
           className="font-bold text-primary transition-all duration-200 hover:underline"
         >
-          <Button className='my-6 mx-4 w-[10%] rounded-3xl bg-[#93B1A6] text-black hover:bg-blue-100  hover:text-black shadow-xl'>Login</Button>
+          <Button className='my-2 mx-4 w-[10%] rounded-3xl bg-[#93B1A6] text-black hover:bg-blue-100  hover:text-black shadow-xl'>Login</Button>
         </Link>
         <Link
           to="/signup"
           className="font-bold text-primary transition-all duration-200 hover:underline"
         >
-          <Button className='my-6 mx-4 w-[10%] rounded-3xl bg-[#93B1A6] text-black hover:bg-blue-100  hover:text-black'>Sign Up</Button>
+          <Button className='my-2 mx-4 w-[10%] rounded-3xl bg-[#93B1A6] text-black hover:bg-blue-100  hover:text-black'>Sign Up</Button>
         </Link>
       </div>
     </div>

@@ -52,7 +52,7 @@ function Header() {
               </div>
             </Link>
           </div>
-          <ul className='flex gap-3 items-center mx-auto text-lg text-[#93B1A6] font-bold font-sans'>
+          <ul className='flex gap-3 items-center mx-auto text-lg text-[#93B1A6] font-bold'>
             {navItems.map((item) =>
               item.active ? (
                 <li key={item.name}>
