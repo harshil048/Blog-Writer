@@ -1,3 +1,6 @@
+# Live
+[Preview](https://mega-blog-azure.vercel.app/)
+
 # Mega Blog Web-App
 
 Mega-Blog is a dynamic and feature-rich blog website created using React.js, offering users a comprehensive and interactive platform for blogging and content management. The project leverages the power of Appwrite for user authentication and database storage, ensuring a seamless user experience.
@@ -9,6 +12,7 @@ Mega-Blog is a dynamic and feature-rich blog website created using React.js, off
 * **Secure Data Storage**: Utilized Appwrite for secure user data storage, ensuring data persistence and reliability. The project showcases technical skills in web development and database integration.
 
 # Preview
+
 ![Home Page](https://github.com/harshil048/Mega-Blog-App/assets/74892092/3b2f7c40-ba18-4f10-af9d-e9cd6566c9db)
 
 ![Login Page](https://github.com/harshil048/Mega-Blog-App/assets/74892092/4190afa1-f275-4c2e-9ab4-c7451d47c022)
